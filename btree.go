@@ -64,6 +64,11 @@ func (tr *BTree) Less(a, b interface{}) bool {
 	return tr.less(a, b)
 }
 
+// SetLess will set a new less function.
+func (tr *BTree) SetLess(less func(a, b interface{}) bool) {
+	tr.less = less
+}
+
 func (n *node) find(key interface{}, less func(a, b interface{}) bool,
 	hint *PathHint, depth int,
 ) (index int16, found bool) {
